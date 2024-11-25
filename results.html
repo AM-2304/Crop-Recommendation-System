@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Crops</title>
+</head>
+<body>
+    <h1>Recommended Crops</h1>
+
+    {% if weather %}
+        <h2>Weather Information</h2>
+        <p>Temperature: {{ weather.temp_c }} °C</p>
+        <p>Condition: {{ weather.condition.text }}</p>
+    {% endif %}
+
+    <ul>
+        {% for crop in crops %}
+            <li>
+                <h2>{{ crop.name }}</h2>
+                <img src="{{ crop.image }}" alt="{{ crop.name }}" style="width:400px;height:auto;">
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="/">Go Back</a>
+</body>
+</html>
